@@ -395,8 +395,6 @@ def Validate_Float_NonZero(string):
 
 
 
-
-
 def Strip_Non_Inputs(list1, name):
     """
     Remove the runtime environment variable and program name from the inputs.
@@ -423,5 +421,24 @@ def Strip_Non_Inputs(list1, name):
     """
     if name in list1[0]: return list1[1:]
     return list1[2:]
+
+
+
+def Strip_X(string):
+    """
+    Strips leading and trailing inverted commans or brackets if a matching pair
+    are flanking the string.
+    
+    Strip_X(str) -> str
+    """
+    if (    (string[0] == string[-1] == "\"") or
+            (string[0] == string[-1] == "\'") or
+            (string[0] == "(" and string[-1] == ")") or
+            (string[0] == "{" and string[-1] == "}") or
+            (string[0] == "[" and string[-1] == "]") or
+            (string[0] == "<" and string[-1] == ">")
+            ):
+        return string[1:-1]
+    return string
 
 
