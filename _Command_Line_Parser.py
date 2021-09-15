@@ -1,6 +1,6 @@
 """
 COMMAND LINE PARSER
-(version 1.0)
+(version 1.1)
 by Angelo Chan
 
 This is a library of functions useful for parsing command line inputs and
@@ -271,6 +271,30 @@ def Get_Files_W_Extensions(dirpath, extensions):
 
 
 
+def Validate_Number(string):
+    """
+    Validates and returns the number specified.
+    Return an integer if possible.
+    Return a float if a non-integer number is specified.
+    Return None if the input is invalid.
+    
+    @string
+        (str)
+        A string denoting a number.
+        
+    Validate_Number(str) -> int
+    Validate_Number(str) -> float
+    Validate_Number(str) -> None
+    """
+    try:
+        n = int(string)
+    except:
+        try:
+            n = float(string)
+        except:
+            return None
+    return n
+
 def Validate_Int_Positive(string):
     """
     Validates and returns the positive integer specified.
@@ -360,8 +384,6 @@ def Validate_Float_NonZero(string):
         return -1
     if n == 0: return -1
     return n
-
-
 
 
 
