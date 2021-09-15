@@ -35,6 +35,14 @@ STR__IO_error_read = "\nERROR: Input file does not exist or could not be "\
 STR__IO_error_read_folder = "\nERROR: Input folder does not exist or could not"\
         " be read."
 
+STR__IO_error_write_forbid = """
+ERROR: You specified an output file which already exists and the administrator
+for this program has forbidden all overwrites. Please specify a different
+output file, move the currently existing file, or configure the default options
+in t2t.py."""
+STR__IO_error_write_unable = """
+ERROR: Unable to write to the specified output file."""
+
 STR__IO_error_write_folder_nonexistent = """
 ERROR: You specified an output folder which does not exist and cannot be
 created. Please specify a different output folder."""
@@ -384,6 +392,8 @@ def Validate_Float_NonZero(string):
         return -1
     if n == 0: return -1
     return n
+
+
 
 
 
