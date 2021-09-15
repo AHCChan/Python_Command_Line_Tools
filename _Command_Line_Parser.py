@@ -59,7 +59,7 @@ ERROR: An unexpected error occured with the specified output path. Contact the
 developers because this error should never be triggered from normal usage of
 this software."""
 
-STR__overwrite_confirm = "\nFile already exists in:\n\t{f}\nDo you wish to "\
+STR__overwrite_confirm = "\nFile already exists:\n\t{f}\nDo you wish to "\
         "overwrite it? (y/n): "
 
 STR__overwrite_accept = "\nWARNING: Existing files will be overwritten."
