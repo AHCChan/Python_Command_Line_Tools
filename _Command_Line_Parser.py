@@ -71,6 +71,8 @@ ERROR: Invalid width: {s}
 Please specify a positive integer.
 """
 
+STR__invalid_argument = "\nERROR: Invalid argument: {s}"
+
 STR__parsing_args = "\nParsing arguments..."
 
 
