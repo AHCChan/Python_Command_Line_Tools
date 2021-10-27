@@ -71,6 +71,14 @@ ERROR: Invalid width: {s}
 Please specify a positive integer.
 """
 
+STR__invalid_bool = """
+ERROR: Invalid boolean: {s}
+Please specify one of the following:
+    Yes
+    No
+    True
+    False"""
+
 STR__invalid_argument = "\nERROR: Invalid argument: {s}"
 
 STR__parsing_args = "\nParsing arguments..."
@@ -278,6 +286,26 @@ def Get_Files_W_Extensions(dirpath, extensions):
             full_path = dirpath + "/" + file_
             results.append(full_path)
     return results
+
+
+
+def Valide_Bool(string):
+    """
+    Validates and returns the boolean specified. Accepts variants of Yes, No,
+    True, and False.
+    Return a boolean if the string is valid.
+    Return None if the string is invalid.
+    
+    @string
+        (str)
+        A string denoting a boolean. (Includes Yes/No)
+    
+    Validate_Bool(str) -> bool
+    Validate_Bool(str) -> None
+    """
+    if string in LIST__yes: return True
+    elif string in LIST__no: return False
+    else: return None
 
 
 
