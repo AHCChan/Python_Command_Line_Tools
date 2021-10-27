@@ -289,7 +289,7 @@ def Get_Files_W_Extensions(dirpath, extensions):
 
 
 
-def Valide_Bool(string):
+def Validate_Bool(string):
     """
     Validates and returns the boolean specified. Accepts variants of Yes, No,
     True, and False.
