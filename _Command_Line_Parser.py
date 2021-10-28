@@ -38,8 +38,8 @@ STR__IO_error_read_folder = "\nERROR: Input folder does not exist or could not"\
 STR__IO_error_write_forbid = """
 ERROR: You specified an output file which already exists and the administrator
 for this program has forbidden all overwrites. Please specify a different
-output file, move the currently existing file, or configure the default options
-in this program."""
+output file, move the currently existing file, or configure the underlying
+File Writer module."""
 STR__IO_error_write_unable = """
 ERROR: Unable to write to the specified output file."""
 
