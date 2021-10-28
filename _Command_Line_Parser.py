@@ -39,7 +39,7 @@ STR__IO_error_write_forbid = """
 ERROR: You specified an output file which already exists and the administrator
 for this program has forbidden all overwrites. Please specify a different
 output file, move the currently existing file, or configure the default options
-in t2t.py."""
+in this program."""
 STR__IO_error_write_unable = """
 ERROR: Unable to write to the specified output file."""
 
