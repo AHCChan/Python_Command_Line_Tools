@@ -53,7 +53,7 @@ STR__IO_error_write_folder_forbid = """
 ERROR: You specified an output folder which already exists and the administrator
 for this program has forbidden all overwrites. Please specify a different
 output folder, move the currently existing folder, or configure the default
-options in Generate_Random_Chromosomes.py."""
+options in program."""
 STR__IO_error_write_unexpected = """
 ERROR: An unexpected error occured with the specified output path. Contact the
 developers because this error should never be triggered from normal usage of
