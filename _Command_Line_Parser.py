@@ -234,17 +234,15 @@ def Get_File_Name(filepath):
     
     Get_Name(str) -> str
     """
-    # Find period
-    index_period = filepath.rfind(".")
     # Slash and backslash
     index_slash = filepath.rfind("/")
     index_bslash = filepath.rfind("\\")
     if index_slash == index_bslash == -1: pass # Simple path
     else: # Complex path
         right_most = max(index_slash, index_bslash)
-        if right_most > index_period: index_period = -1 # Period in folders only
         filepath = filepath[right_most+1:]
-    # Eliminate extension, if any
+    # Find period
+    index_period = filepath.rfind(".")
     if index_period == -1: return filepath
     return filepath[:index_period]
 
