@@ -224,7 +224,7 @@ def Generate_Default_Output_File_Path_From_Folder(path_in, mod):
     """
     return path_in + mod
 
-def Get_Name(filepath):
+def Get_File_Name(filepath):
     """
     Return the name of the file, minus the file extension, for the file
     specified by [filepath].
