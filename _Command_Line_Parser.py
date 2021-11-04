@@ -224,6 +224,30 @@ def Generate_Default_Output_File_Path_From_Folder(path_in, mod):
     """
     return path_in + mod
 
+def Get_File_Name_Ext(filepath):
+    """
+    Return the name of the file, and the file extension, for the file specified
+    by [filepath].
+    
+    If the file has no extension, return the file name and an empty string.
+    
+    Assumes [filepath] is the filepath for a file. If a directory path is
+    supplied, an empty string will also be returned.
+    
+    Get_Name(str) -> [str, str]
+    """
+    # Slash and backslash
+    index_slash = filepath.rfind("/")
+    index_bslash = filepath.rfind("\\")
+    if index_slash == index_bslash == -1: pass # Simple path
+    else: # Complex path
+        right_most = max(index_slash, index_bslash)
+        filepath = filepath[right_most+1:]
+    # Find period
+    index_period = filepath.rfind(".")
+    if index_period == -1: return [filepath, ""]
+    return [filepath[:index_period], filepath[index_period+1:]]
+
 def Get_File_Name(filepath):
     """
     Return the name of the file, minus the file extension, for the file
