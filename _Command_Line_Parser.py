@@ -102,6 +102,24 @@ LIST__FASTA = ["FA", "fa", "FASTA", "Fasta", "fasta"] # File extension
 
 # Communications and Metrics ###################################################
 
+def Get_Max_Len(strings):
+    """
+    Return the length of the longest string in a list of strings.
+    
+    @strings
+            (list<str>)
+            The list of the strings.
+    
+    Get_Max_Len(list<str>) -> int
+    """
+    maximum = 0
+    for string in strings:
+        length = len(string)
+        if length > maximum: maximum = length
+    return maximum
+
+
+
 def Pad_Str(string, size, char=" ", side=0):
     """
     Return a padded version of a string.
