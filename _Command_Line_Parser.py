@@ -95,6 +95,7 @@ LIST__no = ["N", "n", "NO", "No", "no", "F", "f", "FALSE", "False", "false"]
 LIST__all = ["A", "a", "ALL", "All", "all"]
 
 LIST__FASTA = ["FA", "fa", "FASTA", "Fasta", "fasta"] # File extension
+LIST__VCF = ["VCF", "Vcf", "vcf"] # File extension
 
 
 
