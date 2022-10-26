@@ -338,7 +338,7 @@ def Get_Files_W_Extensions(dirpath, extensions):
             (list<str>)
             A list of all acceptable file extensions.
     
-    Get_FASTA_List(str) -> list<str>
+    Get_Files_W_Extensions(str) -> list<str>
     """
     results = []
     try:
