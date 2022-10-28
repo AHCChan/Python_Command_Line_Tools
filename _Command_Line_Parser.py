@@ -96,6 +96,9 @@ LIST__all = ["A", "a", "ALL", "All", "all"]
 
 LIST__FASTA = ["FA", "fa", "FASTA", "Fasta", "fasta"] # File extension
 LIST__VCF = ["VCF", "Vcf", "vcf"] # File extension
+LIST__CSV = ["CSV", "Csv", "csv"]
+LIST__TSV = ["TSV", "Tsv", "tsv"]
+LIST__TSV_ = ["TSV", "Tsv", "tsv", "TAB", "Tab", "tab"]
 
 
 
