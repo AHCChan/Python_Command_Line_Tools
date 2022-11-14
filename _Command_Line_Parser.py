@@ -1,6 +1,6 @@
 """
 COMMAND LINE PARSER
-(version 1.1)
+(version 1.2)
 by Angelo Chan
 
 This is a library of functions useful for parsing command line inputs and
@@ -341,7 +341,7 @@ def Get_Files_W_Extensions(dirpath, extensions):
             (list<str>)
             A list of all acceptable file extensions.
     
-    Get_Files_W_Extensions(str) -> list<str>
+    Get_Files_W_Extensions(str, list<str>) -> list<str>
     """
     results = []
     try:
@@ -351,6 +351,32 @@ def Get_Files_W_Extensions(dirpath, extensions):
     for file_ in files:
         extension = Get_Extension(file_)
         if extension in extensions:
+            full_path = dirpath + "/" + file_
+            results.append(full_path)
+    return results
+
+def Get_Files_W_Substring(dirpath, substring):
+    """
+    Return a list of the full filepaths of every file in [dirpath] with names
+    which contain [substring].
+    Return an empty list if there are any issues.
+    
+    @path_in
+            (str - dirpath)
+            The filepath of the folder of interest.
+    @substring
+            (str)
+            The target substring
+    
+    Get_Files_W_Extensions(str, str) -> list<str>
+    """
+    results = []
+    try:
+        files = os.listdir(dirpath)
+    except:
+        return results
+    for file_ in files:
+        if substring in file_:
             full_path = dirpath + "/" + file_
             results.append(full_path)
     return results
