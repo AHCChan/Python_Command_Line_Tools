@@ -94,15 +94,28 @@ LIST__no = ["N", "n", "NO", "No", "no", "F", "f", "FALSE", "False", "false"]
 
 LIST__all = ["A", "a", "ALL", "All", "all"]
 
-LIST__FASTA = ["FA", "fa", "FASTA", "Fasta", "fasta"] # File extension
-LIST__VCF = ["VCF", "Vcf", "vcf"] # File extension
+LIST__FASTA = ["FA", "fa", "FASTA", "Fasta", "fasta"] # File extensions
+LIST__VCF = ["VCF", "Vcf", "vcf"]
 LIST__CSV = ["CSV", "Csv", "csv"]
 LIST__TSV = ["TSV", "Tsv", "tsv"]
 LIST__TSV_ = ["TSV", "Tsv", "tsv", "TAB", "Tab", "tab"]
+LIST__SSV = ["SSV", "Ssv", "ssb"]
 
 
 
 # Dictionaries #################################################################
+
+DICT__table_ext_to_delim = {}
+DICT__table_ext_to_delim_ = {}
+
+for ext in LIST__CSV: DICT__table_ext_to_delim[ext] = ","
+for ext in LIST__TSV: DICT__table_ext_to_delim[ext] = "\t"
+for ext in LIST__SSV: DICT__table_ext_to_delim[ext] = " "
+
+DICT__table_ext_to_delim_ = dict(DICT__table_ext_to_delim)
+for ext in LIST__TSV: DICT__table_ext_to_delim_[ext] = "\t"
+
+
 
 # Communications and Metrics ###################################################
 
@@ -516,6 +529,23 @@ def Validate_Float_NonZero(string):
         return -1
     if n == 0: return -1
     return n
+
+def Validate_Table_Type(string):
+    """
+    Validates a table file type and returns the delimiter char for that table
+    type.
+    Return an empty string if the input is invalid.
+    
+    @string
+        (str)
+        A string denoting the file type. Acceptable options are:
+            tsv - Tab-separated values
+            csv - Comma-separated values
+            ssv - Space-separated values
+        
+    Validate_Table_Type(str) -> str
+    """
+    return DICT__table_ext_to_delim_.get(string, "")
 
 
 
