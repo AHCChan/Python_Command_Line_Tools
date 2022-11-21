@@ -35,6 +35,9 @@ STR__IO_error_read = "\nERROR: Input file does not exist or could not be "\
 STR__IO_error_read_folder = "\nERROR: Input folder does not exist or could not"\
         " be read."
 
+STR__read_folder_no_substring = "\nERROR: Input folder:\n\t{f}\n...contains "\
+        "no files containing the substring:\n\t{s}"
+
 STR__IO_error_write_forbid = """
 ERROR: You specified an output file which already exists and the administrator
 for this program has forbidden all overwrites. Please specify a different
