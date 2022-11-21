@@ -82,6 +82,15 @@ Please specify one of the following:
     True
     False"""
 
+STR__invalid_arg_for_flag = "\nERROR: Invalid argument supplied for the flag "\
+"\"{s}\"" 
+
+
+
+STR__invalid_table_type = "\nERROR: Invalid table type specified:\n\t{s}"
+
+
+
 STR__invalid_argument = "\nERROR: Invalid argument: {s}"
 
 STR__parsing_args = "\nParsing arguments..."
