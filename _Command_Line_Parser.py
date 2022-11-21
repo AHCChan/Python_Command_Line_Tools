@@ -1,6 +1,6 @@
 """
 COMMAND LINE PARSER
-(version 1.2)
+(version 1.3)
 by Angelo Chan
 
 This is a library of functions useful for parsing command line inputs and
