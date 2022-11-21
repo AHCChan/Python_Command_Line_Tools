@@ -372,7 +372,7 @@ def Get_Files_W_Substring(dirpath, substring):
     """
     Return a list of the full filepaths of every file in [dirpath] with names
     which contain [substring].
-    Return an empty list if there are any issues.
+    Return None if there are any issues.
     
     @path_in
             (str - dirpath)
@@ -387,7 +387,7 @@ def Get_Files_W_Substring(dirpath, substring):
     try:
         files = os.listdir(dirpath)
     except:
-        return results
+        return None
     for file_ in files:
         if substring in file_:
             full_path = dirpath + "/" + file_
