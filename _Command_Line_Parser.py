@@ -303,7 +303,7 @@ def Get_File_Name(filepath):
     Assumes [filepath] is the filepath for a file. If a directory path is
     supplied, an empty string will also be returned.
     
-    Get_Name(str) -> str
+    Get_File_Name(str) -> str
     """
     # Slash and backslash
     index_slash = filepath.rfind("/")
