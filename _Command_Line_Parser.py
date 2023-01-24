@@ -1,6 +1,6 @@
 """
 COMMAND LINE PARSER
-(version 1.3)
+(version 1.4)
 by Angelo Chan
 
 This is a library of functions useful for parsing command line inputs and
@@ -94,6 +94,10 @@ STR__invalid_table_type = "\nERROR: Invalid table type specified:\n\t{s}"
 STR__invalid_argument = "\nERROR: Invalid argument: {s}"
 
 STR__parsing_args = "\nParsing arguments..."
+
+
+
+STR__unexpected_failure = "\nProgram exited with an unexpected error."
 
 
 
@@ -303,7 +307,7 @@ def Get_File_Name(filepath):
     Assumes [filepath] is the filepath for a file. If a directory path is
     supplied, an empty string will also be returned.
     
-    Get_File_Name(str) -> str
+    Get_Name(str) -> str
     """
     # Slash and backslash
     index_slash = filepath.rfind("/")
@@ -527,7 +531,7 @@ def Validate_Float_NonNeg(string):
 def Validate_Float_NonZero(string):
     """
     Validates and returns the non-zero float specified.
-    Return 0 if the input is invalid.
+    Return -1 if the input is invalid.
     
     @string
         (str)
@@ -538,8 +542,8 @@ def Validate_Float_NonZero(string):
     try:
         n = float(string)
     except:
-        return 0
-    if n == 0: return 0
+        return -1
+    if n == 0: return -1
     return n
 
 def Validate_Table_Type(string):
