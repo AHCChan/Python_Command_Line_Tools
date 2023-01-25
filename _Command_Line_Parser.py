@@ -87,8 +87,14 @@ STR__invalid_arg_for_flag = "\nERROR: Invalid argument supplied for the flag "\
 
 
 
-STR__invalid_table_type = "\nERROR: Invalid table type specified:\n\t{s}"
+STR__invalid_table_type = "\nERROR: Invalid table type specified:\n\t{s}" # OLD
+STR__invalid_table_format = """
+ERROR: Invalid table format specified: {s}
 
+Please specify one of:
+    tsv
+    csv
+    ssv"""
 
 
 STR__invalid_argument = "\nERROR: Invalid argument: {s}"
