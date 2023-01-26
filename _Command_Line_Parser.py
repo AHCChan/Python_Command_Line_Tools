@@ -127,6 +127,10 @@ LIST__SSV = ["SSV", "Ssv", "ssb"]
 
 # Dictionaries #################################################################
 
+DICT__table_delim_to_ext = {"\t": "tsv", ",": "csv", " ": "ssv"}
+
+
+
 DICT__table_ext_to_delim = {}
 DICT__table_ext_to_delim_ = {}
 
