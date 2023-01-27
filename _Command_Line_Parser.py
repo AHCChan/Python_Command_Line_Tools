@@ -163,6 +163,54 @@ def Get_Max_Len(strings):
 
 
 
+def Pad_Column(list_, minimum=0, extra=0, char=" ", side=0):
+    """
+    Return a list of padded strings.
+    All strings will be padded until they are the same length.
+    
+    @string
+            (str)
+            The list of strings to be padded.
+    @minimum
+            (int)
+            The minimum width of the post-padding column.
+            Note that if @extra is not zero, @minimum will effectively be
+            @minimum+@extra.
+            (DEFAULT: 0)
+    @extra
+            (int)
+            The amount of extra padding on top.
+            Note that if @extra is not zero, @minimum will effectively be
+            @minimum+@extra.
+            (DEFAULT: 0)
+    @char   
+            (str)
+            The character used to pad the strings.
+            (DEFAULT: whitespace)
+    @side
+            (int)
+            An integer indicating which side the padding is to be added.
+            0 for the padding to be added to the left.
+            Any other integer for the padding to be added to the right.
+            (DEFAULT: left)
+    
+    Pad_Str(list<str>, int, int, str, int) -> list<str>
+    """
+    # Get minimum
+    for string in list_:
+        length = len(string)
+        if length > minimum: minimum = length
+    # Extra
+    if extra > 0: minimum += extra
+    # Pad
+    results = []
+    for string in list_:
+        padded_string = Pad_Str(string, minimum, char, side)
+        results.append(padded_string)
+    # Return
+    return results
+        
+
 def Pad_Str(string, size, char=" ", side=0):
     """
     Return a padded version of a string.
