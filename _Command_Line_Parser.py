@@ -74,6 +74,18 @@ ERROR: Invalid width: {s}
 Please specify a positive integer.
 """
 
+STR__invalid_column = """
+ERROR: Invalid column number: {s}
+Please specify a positive integer.
+"""
+
+STR__invalid_columns = """
+ERROR: Invalid column number(s): {s}
+Please specify at least one positive integer.
+If specifying multiple integers, please separate them with {d}.
+Do not add whitespaces between {d} and integers.
+"""
+
 STR__invalid_bool = """
 ERROR: Invalid boolean: {s}
 Please specify one of the following:
@@ -83,7 +95,7 @@ Please specify one of the following:
     False"""
 
 STR__invalid_arg_for_flag = "\nERROR: Invalid argument supplied for the flag "\
-"\"{s}\"" 
+"\"{s}\""
 
 
 
