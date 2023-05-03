@@ -1,6 +1,6 @@
 """
 COMMAND LINE PARSER
-(version 1.4)
+(version 1.5)
 by Angelo Chan
 
 This is a library of functions useful for parsing command line inputs and
@@ -264,7 +264,7 @@ def Trim_Percentage_Str(string, max_decimal_places):
 
 
 
-# Command Line Parsing #########################################################
+# Validate Paths ###############################################################
 
 def Validate_Read_Path(filepath):
     """
@@ -470,6 +470,8 @@ def Get_Files_W_Substring(dirpath, substring):
 
 
 
+# Validate Values ##############################################################
+
 def Validate_Bool(string):
     """
     Validates and returns the boolean specified. Accepts variants of Yes, No,
@@ -623,6 +625,63 @@ def Validate_Table_Type(string):
 
 
 
+# Validate Advanced ############################################################
+
+def Validate_List_Of_Ints(string, delimiter):
+    """
+    Validates a string containing multiple integers and returns the integers as
+    a list.
+    Return an empty string if the input is invalid.
+    
+    @string
+        (str)
+        A string containing the list of numbers.
+    @delimiter
+        (str)
+        The delimiter separating the numbers from each other
+    
+    Validate_List_Of_Ints(str, str) -> list<int>
+    """
+    values = string.split(delimiter)
+    result = []
+    for value in values:
+        try:
+            v = int(value)
+            result.append(v)
+        except:
+            return []
+    return result
+
+def Validate_List_Of_Ints_NonNeg(string, delimiter):
+    """
+    Validates a string containing multiple non-negative integers and returns the
+    integers as a list.
+    Return an empty string if the input is invalid.
+    
+    @string
+        (str)
+        A string containing the list of numbers.
+    @delimiter
+        (str)
+        The delimiter separating the numbers from each other
+    
+    Validate_List_Of_Ints(str, str) -> list<int>
+    """
+    values = string.split(delimiter)
+    result = []
+    for value in values:
+        try:
+            v = int(value)
+            if v < 0: return []
+            result.append(v)
+        except:
+            return []
+    return result
+
+
+
+# Command Line Parsing (Main) ##################################################
+
 def Strip_Non_Inputs(list1, name):
     """
     Remove the runtime environment variable and program name from the inputs.
@@ -651,6 +710,8 @@ def Strip_Non_Inputs(list1, name):
     return list1[2:]
 
 
+
+# String Processing ############################################################
 
 def Strip_X(string):
     """
