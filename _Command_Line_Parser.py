@@ -690,6 +690,32 @@ def Validate_List_Of_Ints_NonNeg(string, delimiter):
             return []
     return result
 
+def Validate_List_Of_Ints_Positive(string, delimiter):
+    """
+    Validates a string containing multiple positive integers and returns the
+    integers as a list.
+    Return an empty string if the input is invalid.
+    
+    @string
+        (str)
+        A string containing the list of numbers.
+    @delimiter
+        (str)
+        The delimiter separating the numbers from each other
+    
+    Validate_List_Of_Ints(str, str) -> list<int>
+    """
+    values = string.split(delimiter)
+    result = []
+    for value in values:
+        try:
+            v = int(value)
+            if v < 1: return []
+            result.append(v)
+        except:
+            return []
+    return result
+
 
 
 # Command Line Parsing (Main) ##################################################
