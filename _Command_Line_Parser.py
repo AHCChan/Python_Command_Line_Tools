@@ -155,6 +155,13 @@ for ext in LIST__TSV: DICT__table_ext_to_delim_[ext] = "\t"
 
 
 
+DICT__delim = {}
+for i in LIST__TSV: DICT__delim[i] = "\t"
+for i in LIST__CSV: DICT__delim[i] = ","
+for i in LIST__SSV: DICT__delim[i] = " "
+
+
+
 # Communications and Metrics ###################################################
 
 def Get_Max_Len(strings):
@@ -479,6 +486,16 @@ def Get_Files_W_Substring(dirpath, substring):
             full_path = dirpath + "/" + file_
             results.append(full_path)
     return results
+
+def Validate_Table_File_Format(string):
+    """
+    Validates the file format specified.
+    Return the appropriate delimiter.
+    Return an empty string if the file format is invalid.
+    
+    Validate_File_Format(str) -> str
+    """
+    return DICT__delim.get(string, "")
 
 
 
