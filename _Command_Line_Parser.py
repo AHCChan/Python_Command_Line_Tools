@@ -1,6 +1,6 @@
 """
 COMMAND LINE PARSER
-(version 1.5)
+(version 1.7)
 by Angelo Chan
 
 This is a library of functions useful for parsing command line inputs and
@@ -647,10 +647,28 @@ def Validate_Table_Type(string):
             tsv - Tab-separated values
             csv - Comma-separated values
             ssv - Space-separated values
-        
+    
     Validate_Table_Type(str) -> str
     """
     return DICT__table_ext_to_delim_.get(string, "")
+
+def Validate_Enclosed_String(string):
+    """
+    Confirms that the string has matching inverted commas at the start and end,
+    and return string with those inverted commas removed.
+    Return None if the input is invalid.
+    
+    @string
+        (str)
+        The string to be processed.
+    
+    Validate_Enclosed_String(str) -> str
+    Validate_Enclosed_String(str) -> None
+    """
+    if len(string) < 2: return None
+    if (string[0] == string[-1] == "\"") or (string[0] == string[-1] == "'"):
+        return string[1:-1]
+    return None
 
 
 
