@@ -69,6 +69,16 @@ STR__overwrite_accept = "\nWARNING: Existing files will be overwritten."
 STR__overwrite_decline = "\nThe user has opted not to overwrite existing "\
         "files.\nThe program will now terminate."
 
+STR__invalid_int = """
+ERROR: Invalid integer: {s}
+Please specify an integer.
+"""
+
+STR__invalid_enclosed_str = """
+ERROR: Invalid enclosed string: {s}
+Please begin and end the string with matching inverted commas.
+"""
+
 STR__invalid_width = """
 ERROR: Invalid width: {s}
 Please specify a positive integer.
