@@ -223,7 +223,7 @@ def Pad_Column(list_, minimum=0, extra=0, char=" ", side=0):
             Any other integer for the padding to be added to the right.
             (DEFAULT: left)
     
-    Pad_Str(list<str>, int, int, str, int) -> list<str>
+    Pad_Column(list<str>, int, int, str, int) -> list<str>
     """
     # Get minimum
     for string in list_:
