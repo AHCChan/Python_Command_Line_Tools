@@ -1,6 +1,6 @@
 """
 COMMAND LINE PARSER
-(version 1.7)
+(version 1.8)
 by Angelo Chan
 
 This is a library of functions useful for parsing command line inputs and
@@ -145,6 +145,11 @@ LIST__TSV = ["TSV", "Tsv", "tsv"]
 LIST__TSV_ = ["TSV", "Tsv", "tsv", "TAB", "Tab", "tab"]
 LIST__SSV = ["SSV", "Ssv", "ssb"]
 
+LIST__integer = ["INTEGERS", "Integers", "integers", "INTEGER", "Integer",
+        "integer", "INT", "Int", "int", "I", "i"]
+LIST__decimal = ["DECIMALS", "Decimals", "decimals", "DECIMAL", "Decimal",
+        "decimal", "DEC", "Dec", "dec", "D", "d"]
+
 
 
 # Dictionaries #################################################################
@@ -223,7 +228,7 @@ def Pad_Column(list_, minimum=0, extra=0, char=" ", side=0):
             Any other integer for the padding to be added to the right.
             (DEFAULT: left)
     
-    Pad_Column(list<str>, int, int, str, int) -> list<str>
+    Pad_Str(list<str>, int, int, str, int) -> list<str>
     """
     # Get minimum
     for string in list_:
