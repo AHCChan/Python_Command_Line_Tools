@@ -119,6 +119,15 @@ Please specify one of:
     ssv"""
 
 
+
+STR__invalid_int_dec = """\nERROR: Invalid indicator for integer/decimal: {s}
+
+Please specify one of:
+    Integer
+    Decimal"""
+
+
+
 STR__invalid_argument = "\nERROR: Invalid argument: {s}"
 
 STR__parsing_args = "\nParsing arguments..."
