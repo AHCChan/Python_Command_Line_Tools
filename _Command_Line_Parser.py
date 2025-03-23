@@ -1,6 +1,6 @@
 """
 COMMAND LINE PARSER
-(version 1.8)
+(version 1.9)
 by Angelo Chan
 
 This is a library of functions useful for parsing command line inputs and
@@ -604,6 +604,45 @@ def Validate_Int_NonNeg(string):
         return -1
     if n < 0: return -1
     return n
+
+def Validate_Int_Max(string, threshold):
+    """
+    Validates and returns the integer specified if it does not exceed
+    [threshold].
+    Return None otherwise.
+    
+    @string
+        (str)
+        A string denoting an integer integer.
+    
+    Validate_Int_Max(str) -> int
+    Validate_Int_Max(str) -> None
+    """
+    try:
+        n = int(string)
+        if n <= threshold: return n
+    except:
+        return None
+    return None
+
+def Validate_Int_Min(string, threshold):
+    """
+    Validates and returns the integer specified if it is below [threshold].
+    Return None otherwise.
+    
+    @string
+        (str)
+        A string denoting an integer integer.
+    
+    Validate_Int_Min(str) -> int
+    Validate_Int_Min(str) -> None
+    """
+    try:
+        n = int(string)
+        if n >= threshold: return n
+    except:
+        return None
+    return None
 
 def Validate_Float_Positive(string):
     """
