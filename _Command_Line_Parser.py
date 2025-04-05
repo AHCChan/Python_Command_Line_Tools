@@ -1,6 +1,6 @@
 """
 COMMAND LINE PARSER
-(version 1.9)
+(version 2.0)
 by Angelo Chan
 
 This is a library of functions useful for parsing command line inputs and
@@ -135,6 +135,15 @@ STR__parsing_args = "\nParsing arguments..."
 
 
 STR__unexpected_failure = "\nProgram exited with an unexpected error."
+
+
+
+# OS Strings ###################################################################
+
+if sys.platform[:3] == "win":
+    directory_spacer = "\\"
+else:
+    directory_spacer = "/"
 
 
 
@@ -481,7 +490,7 @@ def Get_Files_W_Extensions(dirpath, extensions):
     for file_ in files:
         extension = Get_Extension(file_)
         if extension in extensions:
-            full_path = dirpath + "/" + file_
+            full_path = dirpath + directory_spacer + file_
             results.append(full_path)
     return results
 
@@ -507,7 +516,7 @@ def Get_Files_W_Substring(dirpath, substring):
         return None
     for file_ in files:
         if substring in file_:
-            full_path = dirpath + "/" + file_
+            full_path = dirpath + directory_spacer + file_
             results.append(full_path)
     return results
 
