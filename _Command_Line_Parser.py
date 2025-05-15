@@ -1,6 +1,6 @@
 """
 COMMAND LINE PARSER
-(version 2.0)
+(version 2.1)
 by Angelo Chan
 
 This is a library of functions useful for parsing command line inputs and
@@ -167,6 +167,11 @@ LIST__integer = ["INTEGERS", "Integers", "integers", "INTEGER", "Integer",
         "integer", "INT", "Int", "int", "I", "i"]
 LIST__decimal = ["DECIMALS", "Decimals", "decimals", "DECIMAL", "Decimal",
         "decimal", "DEC", "Dec", "dec", "D", "d"]
+LIST__SSV = ["SSV", "Ssv", "ssb"]
+
+LIST__none = ["N", "n", "NONE", "None", "none"]
+LIST__skip = ["S", "s", "SKIP", "Skip", "skip"]
+LIST__keep = ["K", "k", "KEEP", "Keep", "keep"]
 
 
 
@@ -192,6 +197,13 @@ DICT__delim = {}
 for i in LIST__TSV: DICT__delim[i] = "\t"
 for i in LIST__CSV: DICT__delim[i] = ","
 for i in LIST__SSV: DICT__delim[i] = " "
+
+
+
+DICT__none_skip_keep = {}
+for i in LIST__none: DICT__none_skip_keep[i] = HEADER.NONE
+for i in LIST__skip: DICT__none_skip_keep[i] = HEADER.SKIP
+for i in LIST__keep: DICT__none_skip_keep[i] = HEADER.KEEP
 
 
 
