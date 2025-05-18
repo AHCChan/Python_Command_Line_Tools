@@ -1,6 +1,6 @@
 """
 COMMAND LINE PARSER
-(version 2.1)
+(version 2.2)
 by Angelo Chan
 
 This is a library of functions useful for parsing command line inputs and
@@ -597,6 +597,30 @@ def Validate_Number(string):
             return None
     return n
 
+def Validate_Numbers(strings):
+    """
+    Validates and returns the numbers specified.
+    Return as an integer if possible, and a float otherwise.
+    Return an empty list if the input is invalid.
+    
+    @strings
+        (list<str>)
+        A list of strings denoting numbers.
+        
+    Validate_Numbers(list<str>) -> list<int/float>
+    """
+    result = []
+    for string in strings: 
+        try:
+            try:
+                n = int(string)
+            except:
+                n = float(string)
+            result.append(n)
+        except:
+            return []
+    return result
+
 def Validate_Int_Positive(string):
     """
     Validates and returns the positive integer specified.
@@ -614,6 +638,27 @@ def Validate_Int_Positive(string):
         return -1
     if n < 1: return -1
     return n
+
+def Validate_Ints_Positive(strings):
+    """
+    Validates and returns the positive integers specified.
+    Return an empty list if the input is invalid.
+    
+    @strings
+        (list<str>)
+        A list of strings denoting positive integers.
+        
+    Validate_Ints_Positive(list<str>) -> list<int>
+    """
+    result = []
+    for string in strings: 
+        try:
+            n = int(string)
+            result.append(n)
+            if n < 1: return []
+        except:
+            return []
+    return result
 
 def Validate_Int_NonNeg(string):
     """
@@ -633,6 +678,27 @@ def Validate_Int_NonNeg(string):
     if n < 0: return -1
     return n
 
+def Validate_Ints_NonNeg(strings):
+    """
+    Validates and returns the non-negative integers specified.
+    Return an empty list if the input is invalid.
+    
+    @strings
+        (list<str>)
+        A list of strings denoting non-negative integers.
+        
+    Validate_Ints_NonNeg(list<str>) -> list<int>
+    """
+    result = []
+    for string in strings: 
+        try:
+            n = int(string)
+            result.append(n)
+            if n < 0: return []
+        except:
+            return []
+    return result
+
 def Validate_Int_Max(string, threshold):
     """
     Validates and returns the integer specified if it does not exceed
@@ -642,6 +708,9 @@ def Validate_Int_Max(string, threshold):
     @string
         (str)
         A string denoting an integer integer.
+    @threshold
+        (int)
+        The maximum permissible value for the numbers in [string].
     
     Validate_Int_Max(str) -> int
     Validate_Int_Max(str) -> None
@@ -653,14 +722,41 @@ def Validate_Int_Max(string, threshold):
         return None
     return None
 
+def Validate_Ints_Max(strings, threshold):
+    """
+    Validates and returns the integers specified if none exceed [threshold].
+    Return an empty list otherwise.
+    
+    @strings
+        (list<str>)
+        A list of strings denoting non-negative integers.
+    @threshold
+        (int)
+        The maximum permissible value for the numbers in [string].
+        
+    Validate_Ints_Max(list<str>) -> list<int>
+    """
+    result = []
+    for string in strings: 
+        try:
+            n = int(string)
+            result.append(n)
+            if n > threshold: return []
+        except:
+            return []
+    return result
+
 def Validate_Int_Min(string, threshold):
     """
-    Validates and returns the integer specified if it is below [threshold].
+    Validates and returns the integer specified if none are below [threshold].
     Return None otherwise.
     
     @string
         (str)
         A string denoting an integer integer.
+    @threshold
+        (int)
+        The minimum permissible value for the numbers in [string].
     
     Validate_Int_Min(str) -> int
     Validate_Int_Min(str) -> None
@@ -671,6 +767,30 @@ def Validate_Int_Min(string, threshold):
     except:
         return None
     return None
+
+def Validate_Ints_Min(strings, threshold):
+    """
+    Validates and returns the integers specified if none are below [threshold].
+    Return an empty list otherwise.
+    
+    @strings
+        (list<str>)
+        A list of strings denoting non-negative integers.
+    @threshold
+        (int)
+        The minimum permissible value for the numbers in [string].
+        
+    Validate_Ints_Min(list<str>) -> list<int>
+    """
+    result = []
+    for string in strings: 
+        try:
+            n = int(string)
+            result.append(n)
+            if n < threshold: return []
+        except:
+            return []
+    return result
 
 def Validate_Float_Positive(string):
     """
@@ -690,6 +810,27 @@ def Validate_Float_Positive(string):
     if n <= 0: return -1
     return n
 
+def Validate_Floats_Positive(strings):
+    """
+    Validates and returns the positive floats specified.
+    Return an empty list if the input is invalid.
+    
+    @strings
+        (list<str>)
+        A list of strings denoting positive floats.
+        
+    Validate_Floats(list<str>) -> list<float>
+    """
+    result = []
+    for string in strings: 
+        try:
+            n = float(string)
+            result.append(n)
+            if n < 1: return []
+        except:
+            return []
+    return result
+
 def Validate_Float_NonNeg(string):
     """
     Validates and returns the non-negative float specified.
@@ -708,6 +849,27 @@ def Validate_Float_NonNeg(string):
     if n < 0: return -1
     return n
 
+def Validate_Floats_NonNeg(strings):
+    """
+    Validates and returns the non-negative floats specified.
+    Return an empty list if the input is invalid.
+    
+    @strings
+        (list<str>)
+        A list of strings denoting non-negative floats.
+        
+    Validate_Floats(list<str>) -> list<float>
+    """
+    result = []
+    for string in strings: 
+        try:
+            n = float(string)
+            result.append(n)
+            if n < 0: return []
+        except:
+            return []
+    return result
+
 def Validate_Float_NonZero(string):
     """
     Validates and returns the non-zero float specified.
@@ -725,6 +887,27 @@ def Validate_Float_NonZero(string):
         return -1
     if n == 0: return -1
     return n
+
+def Validate_Floats_NonZero(string):
+    """
+    Validates and returns the non-zero floats specified.
+    Return an empty list if the input is invalid.
+    
+    @string
+        (str)
+        A string denoting a non-zero float.
+        
+    Validate_Float_NonZero(str) -> float
+    """
+    result = []
+    for string in strings: 
+        try:
+            n = float(string)
+            result.append(n)
+            if n == 0: return []
+        except:
+            return []
+    return result
 
 def Validate_Table_Type(string):
     """
