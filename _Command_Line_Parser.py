@@ -24,6 +24,13 @@ import os
 
 # Enums ########################################################################
 
+class NSK:
+    NONE=1
+    SKIP=2
+    KEEP=3
+
+
+
 # Strings ######################################################################
 
 STR__no_inputs = "\nERROR: No inputs were given."
@@ -201,9 +208,9 @@ for i in LIST__SSV: DICT__delim[i] = " "
 
 
 DICT__none_skip_keep = {}
-for i in LIST__none: DICT__none_skip_keep[i] = HEADER.NONE
-for i in LIST__skip: DICT__none_skip_keep[i] = HEADER.SKIP
-for i in LIST__keep: DICT__none_skip_keep[i] = HEADER.KEEP
+for i in LIST__none: DICT__none_skip_keep[i] = NSK.NONE
+for i in LIST__skip: DICT__none_skip_keep[i] = NSK.SKIP
+for i in LIST__keep: DICT__none_skip_keep[i] = NSK.KEEP
 
 
 
