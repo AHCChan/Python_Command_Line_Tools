@@ -1,6 +1,6 @@
 """
 COMMAND LINE PARSER
-(version 2.3.1)
+(version 2.4)
 by Angelo Chan
 
 This is a library of functions useful for parsing command line inputs and
@@ -328,6 +328,77 @@ def Pad_Column(list_, minimum=0, extra=0, char=" ", side=0):
     results = []
     for string in list_:
         padded_string = Pad_Str(string, minimum, char, side)
+        results.append(padded_string)
+    # Return
+    return results
+
+
+
+def Pad_Column_MixedNums(list_, dec_places=2, minimum=0, extra=0, char=" "):
+    """
+    Return a list of padded strings. The strings are assumed to be a mix of
+    integers and floats and will be padded in such a way that the place values
+    of all the numbers lined up.
+    All strings will be padded until they are the same length.
+    
+    @list_
+            (str)
+            The list of numbers to be converted into strings and padded.
+    @dec_places
+            (int)
+            The number of decimal places used for floats.
+            (DEFAULT: 2)
+    @minimum
+            (int)
+            The minimum width of the post-padding column.
+            Note that if @extra is not zero, @minimum will effectively be
+            @minimum+@extra.
+            (DEFAULT: 0)
+    @extra
+            (int)
+            The amount of extra padding on top.
+            Note that if @extra is not zero, @minimum will effectively be
+            @minimum+@extra.
+            (DEFAULT: 0)
+    @char   
+            (str)
+            The character used to pad the strings.
+            (DEFAULT: whitespace)
+    
+    Pad_Str(list<str>, int, int, str, int) -> list<str>
+    """
+    # Float presence
+    flag = False
+    for num in list_:
+        if type(num) == float:
+            flag = True
+    # Convert
+    int_padder = " " * (dec_places + 1)
+    float_padder = "0" * dec_places
+    temp = []
+    if flag:
+        for num in list_:
+            if type(num) == int:
+                string = str(num) + int_padder
+            else: # float
+                string = str(num) + float_padder
+                string = Trim_Percentage_Str(string, 6)
+            temp.append(string)
+    else:
+        for num in list_:
+            string = str(num)
+            temp.append(string)
+    list_ = temp
+    # Get minimum
+    for string in list_:
+        length = len(string)
+        if length > minimum: minimum = length
+    # Extra
+    if extra > 0: minimum += extra
+    # Pad
+    results = []
+    for string in list_:
+        padded_string = Pad_Str(string, minimum, char, 0) # 0 for left-padding
         results.append(padded_string)
     # Return
     return results
