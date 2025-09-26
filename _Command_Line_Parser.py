@@ -1,6 +1,6 @@
 """
 COMMAND LINE PARSER
-(version 2.2)
+(version 2.3.1)
 by Angelo Chan
 
 This is a library of functions useful for parsing command line inputs and
@@ -28,6 +28,15 @@ class NSK:
     NONE=1
     SKIP=2
     KEEP=3
+    
+class KSR:
+    SKIP=2
+    KEEP=3
+    REAR=4
+
+class INC_EXC:
+    INCLUDE=1
+    EXCLUDE=2
 
 
 
@@ -179,6 +188,11 @@ LIST__SSV = ["SSV", "Ssv", "ssb"]
 LIST__none = ["N", "n", "NONE", "None", "none"]
 LIST__skip = ["S", "s", "SKIP", "Skip", "skip"]
 LIST__keep = ["K", "k", "KEEP", "Keep", "keep"]
+LIST__rear = ["R", "r", "REAR", "Rear", "rear", "REARRANGE", "Rearrange",
+        "rearrange"]
+
+LIST__include = ["I", "i", "INC", "Inc", "inc", "INCLUDE", "Include", "include"]
+LIST__exclude = ["E", "e", "EXC", "Exc", "exc", "EXCLUDE", "Exclude", "exclude"]
 
 
 
@@ -212,6 +226,43 @@ for i in LIST__none: DICT__none_skip_keep[i] = NSK.NONE
 for i in LIST__skip: DICT__none_skip_keep[i] = NSK.SKIP
 for i in LIST__keep: DICT__none_skip_keep[i] = NSK.KEEP
 
+DICT__keep_skip_rear = {}
+for i in LIST__keep: DICT__keep_skip_rear[i] = KSR.KEEP
+for i in LIST__skip: DICT__keep_skip_rear[i] = KRS.SKIP
+for i in LIST__rear: DICT__keep_skip_rear[i] = KSR.REAR
+
+
+
+
+# Command Interface Supporting Functions #######################################
+
+def All_Cases(strings, separator="_"):
+    """
+    Return all uppercase, capitalized, and lowercase string permutations of
+    every string contained within [strings].
+    
+    The purpose is to allow mutiple arguments to achieve the same outcome.
+    
+    All_Cases(list<str>) -> list<str>
+    """
+    results = []
+    for string in strings:
+        words = string.split(separator)
+        upper = []
+        capped = []
+        lower = []
+        for word in words:
+            upper.append(word.upper())
+            capped.append(word.capitalize())
+            lower.append(word.lower())
+        s_upper = separator.join(upper)
+        s_capped = separator.join(capped)
+        s_lower = separator.join(lower)
+        results.append(s_upper)
+        results.append(s_capped)
+        results.append(s_lower)
+    return results
+
 
 
 # Communications and Metrics ###################################################
@@ -239,7 +290,7 @@ def Pad_Column(list_, minimum=0, extra=0, char=" ", side=0):
     Return a list of padded strings.
     All strings will be padded until they are the same length.
     
-    @string
+    @list_
             (str)
             The list of strings to be padded.
     @minimum
@@ -280,7 +331,8 @@ def Pad_Column(list_, minimum=0, extra=0, char=" ", side=0):
         results.append(padded_string)
     # Return
     return results
-        
+
+
 
 def Pad_Str(string, size, char=" ", side=0):
     """
@@ -942,6 +994,23 @@ def Validate_Enclosed_String(string):
     if len(string) < 2: return None
     if (string[0] == string[-1] == "\"") or (string[0] == string[-1] == "'"):
         return string[1:-1]
+    return None
+
+def Validate_Inc_Exc(string):
+    """
+    Confirms that the string specifies either include or exclude, and return the
+    corresponding ENUM if valid.
+    Return None if the input is invalid.
+    
+    @string
+        (str)
+        The string to be processed.
+    
+    Validate_Inc_Exc(str) -> str
+    Validate_Inc_Exc(str) -> None
+    """
+    if string in LIST__include: return INC_EXC.INCLUDE
+    if string in LIST__exclude: return INC_EXC.EXCLUDE
     return None
 
 
