@@ -1,6 +1,6 @@
 """
 COMMAND LINE PARSER
-(version 2.4)
+(version 2.4.1)
 by Angelo Chan
 
 This is a library of functions useful for parsing command line inputs and
@@ -1092,7 +1092,7 @@ def Validate_List_Of_Ints(string, delimiter):
     """
     Validates a string containing multiple integers and returns the integers as
     a list.
-    Return an empty string if the input is invalid.
+    Return an empty list if the input is invalid.
     
     @string
         (str)
@@ -1117,7 +1117,7 @@ def Validate_List_Of_Ints_NonNeg(string, delimiter):
     """
     Validates a string containing multiple non-negative integers and returns the
     integers as a list.
-    Return an empty string if the input is invalid.
+    Return an empty list if the input is invalid.
     
     @string
         (str)
@@ -1143,7 +1143,7 @@ def Validate_List_Of_Ints_Positive(string, delimiter):
     """
     Validates a string containing multiple positive integers and returns the
     integers as a list.
-    Return an empty string if the input is invalid.
+    Return an empty list if the input is invalid.
     
     @string
         (str)
