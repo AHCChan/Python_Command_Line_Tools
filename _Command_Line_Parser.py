@@ -144,12 +144,20 @@ Please specify one of:
 
 
 
+STR__invalid_ksr = """
+ERROR: Invalid behaviour specified: {s}
+
+Please specify one of:
+    Keep
+    Skip
+    Rearrange"""
+
 STR__invalid_inc_exc = """
-ERROR: Invalid behaviour specified: {s]
+ERROR: Invalid behaviour specified: {s}
 
 Please specify one of:
     Include
-    Exclude""
+    Exclude"""
 
 
 
