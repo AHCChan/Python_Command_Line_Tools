@@ -1,6 +1,6 @@
 """
 COMMAND LINE PARSER
-(version 2.4.1)
+(version 2.5)
 by Angelo Chan
 
 This is a library of functions useful for parsing command line inputs and
@@ -141,6 +141,15 @@ STR__invalid_int_dec = """\nERROR: Invalid indicator for integer/decimal: {s}
 Please specify one of:
     Integer
     Decimal"""
+
+
+
+STR__invalid_inc_exc = """
+ERROR: Invalid behaviour specified: {s]
+
+Please specify one of:
+    Include
+    Exclude""
 
 
 
