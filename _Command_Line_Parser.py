@@ -1,6 +1,6 @@
 """
 COMMAND LINE PARSER
-(version 2.5)
+(version 2.6.1)
 by Angelo Chan
 
 This is a library of functions useful for parsing command line inputs and
@@ -136,6 +136,15 @@ Please specify one of:
 
 
 
+STR__invalid_N_C = """
+ERROR: Invalid type specified: {s}
+Please specify one of the following:
+    Num
+    Char
+"""
+
+
+
 STR__invalid_int_dec = """\nERROR: Invalid indicator for integer/decimal: {s}
 
 Please specify one of:
@@ -196,6 +205,10 @@ LIST__TSV = ["TSV", "Tsv", "tsv"]
 LIST__TSV_ = ["TSV", "Tsv", "tsv", "TAB", "Tab", "tab"]
 LIST__SSV = ["SSV", "Ssv", "ssb"]
 
+LIST__num = ["NUMBER", "Number", "number", "NUM", "Num", "num", "N", "n"]
+LIST__char = ["CHARACTER", "Character", "character", "CHAR", "Char", "char",
+        "C", "c"]
+
 LIST__integer = ["INTEGERS", "Integers", "integers", "INTEGER", "Integer",
         "integer", "INT", "Int", "int", "I", "i"]
 LIST__decimal = ["DECIMALS", "Decimals", "decimals", "DECIMAL", "Decimal",
@@ -245,7 +258,7 @@ for i in LIST__keep: DICT__none_skip_keep[i] = NSK.KEEP
 
 DICT__keep_skip_rear = {}
 for i in LIST__keep: DICT__keep_skip_rear[i] = KSR.KEEP
-for i in LIST__skip: DICT__keep_skip_rear[i] = KRS.SKIP
+for i in LIST__skip: DICT__keep_skip_rear[i] = KSR.SKIP
 for i in LIST__rear: DICT__keep_skip_rear[i] = KSR.REAR
 
 
