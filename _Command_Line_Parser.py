@@ -1,6 +1,6 @@
 """
 COMMAND LINE PARSER
-(version 2.6.1)
+(version 2.7)
 by Angelo Chan
 
 This is a library of functions useful for parsing command line inputs and
@@ -44,6 +44,8 @@ class INC_EXC:
 
 STR__no_inputs = "\nERROR: No inputs were given."
 STR__insufficient_inputs = "\nERROR: Not enough inputs were given."
+STR__insufficient_inputs_arg = """
+ERROR: Not enough inputs were given for the flag: {s}"""
 
 STR__IO_error_read = "\nERROR: Input file does not exist or could not be "\
         "opened."
